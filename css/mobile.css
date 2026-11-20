@@ -1,0 +1,69 @@
+/* ===== Tối ưu cho điện thoại ===== */
+@media (max-width: 760px) {
+  .container { width: calc(100% - 24px); }
+  .page { padding: 18px 0 44px; }
+  .page-head { margin-bottom: 16px; }
+  .btn, .btn-sm { min-height: 44px; justify-content: center; }
+  .btn-icon { min-width: 44px; padding-inline: 0; }
+  .seg button { min-height: 40px; padding: 8px 14px; }
+  .section-head { align-items: flex-start; }
+  .section-head .seg { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .section-head .seg::-webkit-scrollbar { display: none; }
+  .hero .row .btn { flex: 1 1 calc(50% - 8px); }
+  .card { padding: 14px; }
+  select, input[type="number"], input[type="search"], input[type="text"] { min-height: 44px; font-size: 16px; } /* 16px để iOS không tự phóng to khi bấm vào ô */
+
+  /* bảng thành danh sách thẻ: mỗi hàng là 1 thẻ, nhãn cột lấy từ tiêu đề */
+  .tbl-wrap { border: 0; background: transparent; box-shadow: none; overflow: visible; border-radius: 0; }
+  table.data, table.data tbody { display: block; }
+  table.data thead { display: none; }
+  table.data tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 8px 12px; margin-bottom: 8px; box-shadow: var(--shadow); }
+  table.data tr.best, table.data tr.best:hover { background: var(--good-soft); }
+  table.data tbody tr:hover { background: var(--surface); }
+  table.data td, table.data td:first-child { display: block; border: 0; padding: 4px 0; min-width: 0 !important; width: auto !important; white-space: normal; }
+  table.data td::before { content: attr(data-label); display: block; font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 1px; }
+  table.data td:first-child, table.data td:last-child, table.data td:has(.chips), table.data td[data-label=""] { grid-column: 1 / -1; }
+  table.data td[data-label=""]::before { display: none; }
+  table.data td[data-empty] { display: none; } /* ô trống (—) ẩn đi cho thẻ ngắn lại */
+  table.data td .rank { margin-right: 6px; }
+  table.data td .btn { width: 100%; min-height: 40px; }
+  table.data td.r { white-space: normal; }
+
+  .formula { font-size: 12px; padding: 10px 12px; }
+
+  /* thẻ build: hạng ở góc trái, nút Chi tiết ở góc phải cùng 1 hàng; chip nhỏ hơn */
+  table.data td:first-child:has(.rank) { grid-column: 1; grid-row: 1; padding: 0; }
+  table.data td:first-child:has(.rank)::before { display: none; }
+  table.data td:last-child:has(.btn) { grid-column: 2; grid-row: 1; padding: 0; justify-self: end; width: auto !important; }
+  table.data td:last-child:has(.btn)::before { display: none; }
+  table.data td .btn { width: auto; min-height: 34px; padding: 6px 14px; }
+  table.data td:has(.chips) { padding: 2px 0 4px; }
+  .chip { font-size: 12px; padding: 2px 8px 2px 6px; }
+  .chips { gap: 4px; }
+
+  /* cột lưới 1fr có độ rộng tối thiểu = nội dung, nên khối công thức dài làm cả trang rộng ra; ép về minmax(0,1fr) */
+  .calc-grid, .result-pair { grid-template-columns: minmax(0, 1fr); }
+  .calc-grid > *, .result-pair > *, .card, details.box, .box-body { min-width: 0; max-width: 100%; }
+  .formula { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+/* thanh điều hướng dưới đáy dùng cho cả điện thoại và máy tính bảng (thanh ngang không đủ chỗ) */
+@media (max-width: 1000px) {
+  /* thanh điều hướng dưới đáy dạng viên thuốc nổi, chỉ có biểu tượng; mục đang chọn là vòng tròn trắng */
+  .footer { padding-bottom: 96px; }
+  .nav { position: fixed; left: 50%; bottom: calc(14px + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 40; display: flex; flex-direction: row; gap: 4px; margin: 0; padding: 8px; width: auto; max-width: calc(100% - 24px); background: #24262b; border: 0; border-radius: 999px; box-shadow: 0 10px 30px rgba(0,0,0,.4); overflow: visible; }
+  .nav a { display: grid; place-items: center; width: 48px; height: 48px; padding: 0; border-radius: 50%; color: #c9ccd3; }
+  .nav a:hover { background: rgba(255,255,255,.1); color: #fff; }
+  .nav a.active { background: #fff; color: #111; }
+  .nav a svg { display: block; width: 23px; height: 23px; }
+  .nav a .nav-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  /* backdrop-filter làm thanh trên trở thành khung chứa của phần tử fixed, nên tắt đi để thanh dưới bám đáy màn hình */
+  .brand { gap: 12px; }
+  .brand svg { width: 38px; height: 38px; }
+  .brand-text { font-size: 19px; }
+  .brand-text small { font-size: 13px; margin-top: 2px; }
+  .topbar-inner { min-height: 76px; padding-top: 14px; padding-bottom: 14px; }
+  .topbar { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--bg); }
+  .hide-sm { display: none; }
+  .topbar-inner { flex-wrap: nowrap; }
+}
