@@ -2,7 +2,8 @@
 """Trích dữ liệu từ file Excel Build_sung_Play_Together.xlsx sang js/data.js.
 
 Cách dùng (khi thêm súng / dòng chỉ số / build mới vào Excel):
-    python tools/build_data.py "D:/Downloads/Build_sung_Play_Together.xlsx"
+    python tools/build_data.py            (mặc định đọc data/Build_sung_Play_Together.xlsx)
+    python tools/build_data.py "đường/dẫn/khác.xlsx"
 
 Cần: pip install openpyxl
 """
@@ -18,7 +19,7 @@ import openpyxl
 
 warnings.filterwarnings("ignore")
 
-DEFAULT_SRC = r"D:/Downloads/Build_sung_Play_Together.xlsx"
+DEFAULT_SRC = str(Path(__file__).resolve().parent.parent / "data" / "Build_sung_Play_Together.xlsx")
 OUT = Path(__file__).resolve().parent.parent / "js" / "data.js"
 
 
@@ -82,13 +83,22 @@ def main():
     # ---- Súng
     ws = wb["Súng"]
     guns = []
-    for _, r in rows(ws, 5, 34, 6):
+    for _, r in rows(ws, 5, 34, 12):
         if not r[0]:
             continue
-        guns.append({
-            "id": slug(r[0]), "name": r[0],
+        g = {
+            "id": r[6] or slug(r[0]), "name": r[0],
             "min": r[1], "max": r[2], "speed": r[3], "mag": r[4], "note": r[5],
-        })
+        }
+        if r[7]:
+            g["gameName"] = r[7]
+        if r[8] is not None and r[9] is not None:
+            g["crit"] = [r[8], r[9]]
+        if r[10]:
+            g["collect"] = r[10]
+        if r[11]:
+            g["source"] = "game" if "game" in str(r[11]).lower() else "sheet"
+        guns.append(g)
 
     # ---- Dòng chỉ số
     ws = wb["Dòng chỉ số"]

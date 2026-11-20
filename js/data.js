@@ -2,14 +2,14 @@
 window.PT_DATA = {
  "meta": {
   "source": "Build_sung_Play_Together.xlsx",
-  "generated": "2026-11-18"
+  "generated": "2026-11-21"
  },
  "params": {
   "petBonus": 0.5,
   "petName": "Vũ Trụ Long",
   "petNote": "Cộng chung với các dòng % Tấn công. Đã kiểm chứng trên clip điện từ (xem sheet Số đo).",
-  "maxSpdFlat": 1,
-  "maxSpdFlatNote": "Chưa biết game có cho ra trùng dòng này và có cộng dồn không. Đổi thành 2 nếu bạn thấy ra trùng.",
+  "maxSpdFlat": 2,
+  "maxSpdFlatNote": "Đặt 2 để cho phép build có 2 dòng +0,50/giây (web đang dùng 2). Chưa kiểm chứng game có cho ra trùng dòng này. Đặt 1 nếu game không cho ra trùng.",
   "maxAtkFlat": 1,
   "maxAtkFlatNote": "Chưa kiểm chứng cách tính dòng này. Không ảnh hưởng build tối ưu hiện tại.",
   "rows": 5
@@ -23,6 +23,13 @@ window.PT_DATA = {
    "speed": 1,
    "mag": 250,
    "note": "Thiết bị xung kích cánh đỏ. Số đạn = độ bền tối đa. Chí mạng gốc 15% / 15% (không tính).",
+   "gameName": "Thiết bị xung kích cánh đỏ",
+   "crit": [
+    0.15,
+    0.15
+   ],
+   "collect": "Sản phẩm bốc thăm",
+   "source": "game",
    "measured": {
     "speed": true,
     "dame": false
@@ -36,9 +43,116 @@ window.PT_DATA = {
    "speed": 1.5,
    "mag": 400,
    "note": "Thiết bị phát xạ điện từ khuếch đại. Số đạn = độ bền tối đa. Chí mạng gốc 15% / 15% (không tính).",
+   "gameName": "Thiết bị phát xạ điện từ khuếch đại",
+   "crit": [
+    0.15,
+    0.15
+   ],
+   "collect": "Sản phẩm sự kiện",
+   "source": "game",
    "measured": {
     "speed": true,
     "dame": true
+   }
+  },
+  {
+   "id": "sung-bac",
+   "name": "Súng bạc",
+   "min": 180,
+   "max": 220,
+   "speed": 2,
+   "mag": 500,
+   "note": "Silver Pistol. Chỉ số đọc từ ảnh trong game (độ bền 500). Sửa chữa 1.500 (3 mỗi viên) theo sheet người chơi.",
+   "gameName": "Vũ khí súng bạc",
+   "crit": [
+    0.15,
+    0.15
+   ],
+   "collect": "Sản phẩm bốc thăm",
+   "source": "game",
+   "measured": {
+    "speed": false,
+    "dame": false
+   }
+  },
+  {
+   "id": "xung-kich-soi-neo",
+   "name": "Thiết bị xung kích sói Neo",
+   "min": 315,
+   "max": 385,
+   "speed": 1,
+   "mag": 450,
+   "note": "Neo Wolf. Trong game ghi tên “Vũ khí súng trường sói Neo”. Sửa chữa 1.250 (2,78 mỗi viên) theo sheet người chơi.",
+   "gameName": "Vũ khí súng trường sói Neo",
+   "crit": [
+    0.1,
+    0.15
+   ],
+   "collect": "Sản phẩm bốc thăm",
+   "source": "game",
+   "measured": {
+    "speed": false,
+    "dame": false
+   }
+  },
+  {
+   "id": "sung-gian-diep-den",
+   "name": "Súng gián điệp đen",
+   "min": 270,
+   "max": 330,
+   "speed": 1,
+   "mag": 400,
+   "note": "Black Spy Gun. Độ bền 400 lấy theo sheet người chơi, chưa thấy trong ảnh game.",
+   "gameName": "Vũ khí súng gián điệp đen",
+   "crit": [
+    0.1,
+    0.1
+   ],
+   "collect": "Sản phẩm bốc thăm",
+   "source": "game",
+   "measured": {
+    "speed": false,
+    "dame": false
+   }
+  },
+  {
+   "id": "vuong-truong-bong-dem",
+   "name": "Vương trượng bóng đêm",
+   "min": 270,
+   "max": 330,
+   "speed": 1,
+   "mag": 400,
+   "note": "Scepter of the Night. Trong game ghi tên “Vũ khí trượng bóng đêm”, độ bền tối đa 400.",
+   "gameName": "Vũ khí trượng bóng đêm",
+   "crit": [
+    0.1,
+    0.1
+   ],
+   "collect": "Sản phẩm bốc thăm",
+   "source": "game",
+   "measured": {
+    "speed": false,
+    "dame": false
+   }
+  },
+  {
+   "id": "sung-keo-ma",
+   "name": "Súng kẹo ma",
+   "min": 135,
+   "max": 165,
+   "speed": 2,
+   "mag": 400,
+   "note": "Ghost Candy Gun. Chỉ số đọc từ ảnh trong game (độ bền tối đa 400). Sửa chữa 1.000 (2,5 mỗi viên) theo sheet người chơi.",
+   "gameName": "Vũ khí súng kẹo ma",
+   "crit": [
+    0.1,
+    0.1
+   ],
+   "collect": "Sản phẩm bốc thăm",
+   "source": "game",
+   "measured": {
+    "speed": false,
+    "dame": false
    }
   }
  ],
@@ -265,6 +379,226 @@ window.PT_DATA = {
     "S · Tốc độ tấn công 50%",
     "S · Tốc độ tấn công 0,50/giây",
     "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Súng bạc",
+   "name": "Nên build (Cân bằng)",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tấn công 45 đến 55 (cộng thẳng)"
+   ]
+  },
+  {
+   "gun": "Súng bạc",
+   "name": "Thiên dame",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Súng bạc",
+   "name": "Thiên tốc",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Súng bạc",
+   "name": "Toàn Tấn công",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%"
+   ]
+  },
+  {
+   "gun": "Thiết bị xung kích sói Neo",
+   "name": "Nên build (Cân bằng)",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 0,50/giây",
+    "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Thiết bị xung kích sói Neo",
+   "name": "Thiên dame",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Thiết bị xung kích sói Neo",
+   "name": "Thiên tốc",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Thiết bị xung kích sói Neo",
+   "name": "Toàn Tấn công",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%"
+   ]
+  },
+  {
+   "gun": "Súng gián điệp đen",
+   "name": "Nên build (Cân bằng)",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 0,50/giây",
+    "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Súng gián điệp đen",
+   "name": "Thiên dame",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Súng gián điệp đen",
+   "name": "Thiên tốc",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Súng gián điệp đen",
+   "name": "Toàn Tấn công",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%"
+   ]
+  },
+  {
+   "gun": "Vương trượng bóng đêm",
+   "name": "Nên build (Cân bằng)",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 0,50/giây",
+    "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Vương trượng bóng đêm",
+   "name": "Thiên dame",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Vương trượng bóng đêm",
+   "name": "Thiên tốc",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Vương trượng bóng đêm",
+   "name": "Toàn Tấn công",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%"
+   ]
+  },
+  {
+   "gun": "Súng kẹo ma",
+   "name": "Nên build (Cân bằng)",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tấn công 45 đến 55 (cộng thẳng)"
+   ]
+  },
+  {
+   "gun": "Súng kẹo ma",
+   "name": "Thiên dame",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Súng kẹo ma",
+   "name": "Thiên tốc",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 50%",
+    "S · Tốc độ tấn công 0,50/giây"
+   ]
+  },
+  {
+   "gun": "Súng kẹo ma",
+   "name": "Toàn Tấn công",
+   "lines": [
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%",
+    "S · Tấn công 50%"
    ]
   }
  ],
